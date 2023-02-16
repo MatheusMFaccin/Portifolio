@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #1E90FF;
+
+}
+.header{
+  z-index: 2;
+}
+.pagina{
+  z-index: 1;
+}

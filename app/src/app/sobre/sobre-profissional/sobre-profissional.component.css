@@ -1,0 +1,71 @@
+.texto{
+  margin-top: 10%;
+}
+.titulo{
+  display: grid;
+  place-items: center;
+  font-size: 150%;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+.progress{
+  width: 200%;
+  height: 3vh;
+}
+.progress-bar{
+  font-size: 140%;
+}
+li{
+  list-style-type: none;
+  margin-top: 20px;
+  font-size: 120%;
+  font-family: 'Times New Roman', Times, serif;
+}
+.bg-warning{
+  background-color: rgb(172, 172, 11);
+}
+
+@media only screen and (max-width: 1334px){
+  .progress{
+    width: 150%;
+  }
+}
+
+@media only screen and (max-width: 1131px){
+  .progress{
+    width: 120%;
+  }
+}
+
+@media only screen and (max-width: 719px) {
+  .progress{
+    width: 90%;
+  }
+  .titulo{
+    font-size: 100%;
+  }
+  label{
+    font-size: 70%;
+  }
+  .progress-bar{
+    font-size: 100%;
+  }
+
+}
+@media only screen and (max-width: 451px) {
+  .titulo{
+    font-size: 70%;
+  }
+  .progress-bar{
+    font-size: 70%;
+  }
+
+}
+@media only screen and (max-width: 348px) {
+  .titulo{
+    font-size: 50%;
+  }
+
+}
+

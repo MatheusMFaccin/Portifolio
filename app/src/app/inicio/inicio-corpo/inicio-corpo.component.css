@@ -1,0 +1,98 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+div{
+  color: white;
+
+}
+.corpo{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+
+
+}
+
+.texto{
+  display: grid;
+  place-items: center;
+
+}
+.imagens{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+
+}
+.img{
+  height: 10%;
+  width: 10%;
+
+}
+.titulo{
+  font-size: 200%;
+  font-family: 'Times New Roman', Times, serif;
+}
+.paragrafo{
+  margin-top: 20px;
+  font-size: 150%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+@media only screen and (max-width: 1224px) and (min-width: 735px) {
+  .titulo{
+    font-size: 150%;
+
+
+  }
+  .paragrafo{
+    margin-top: 20px;
+    font-size: 100%;
+
+
+  }
+}
+@media only screen and (max-width: 734px) and (min-width: 490px){
+  .titulo{
+    font-size: 100%;
+
+  }
+  .paragrafo{
+    margin-top: 20px;
+    font-size: 50%;
+
+  }
+}
+@media only screen and (max-width: 489px){
+  .titulo{
+    font-size: 60%;
+
+  }
+  .paragrafo{
+    margin-top: 20px;
+    font-size: 50%;
+
+  }
+}
+
+
+/*
+.tituloPequeno{
+  font-size: 150%;
+}
+.paragrafoPequeno{
+  font-size: 100%;
+}
+.tituloMuitoPequeno{
+  font-size: 50%;
+}
+.paragrafoMuitoPequeno{
+  font-size: 100%;
+}*/
+
+
