@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    /* Isso impede que o menu fixo esconda o título da seção quando clicar no link */
+    section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    #inicio {
+        min-height: 100vh;
+        /* Ocupa a tela toda */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: .75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+</style>
+
+<section id="inicio">
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">Olá, eu sou o Matheus Faccin</h1>
+        <p class="lead">Bem-vindo ao meu portfólio.</p>
+        <a href="#projetos" class="btn btn-primary btn-lg">Baixar Curriculo</a>
+    </div>
+</section>
+
+<section id="sobre" class="container">
+    <div class="text-center">
+
+        <h2 class="display-4 fw-bold">Sobre Mim</h2>
+        <p>Olá, eu sou o Matheus, um Desenvolvedor Full-stack focado na construção de sistemas de alta performance. Com
+            uma abordagem centrada em escalabilidade, eu combino Arquitetura de Software e Inteligência Artificial para
+            criar projetos coesos e impactantes que automatizam tarefas complexas e otimizam processos empresariais.
+
+            Sou especializado em arquitetar e desenvolver sistemas robustos, preparados para processar e analisar
+            grandes volumes de dados com eficiência. Meu foco técnico me permite criar soluções que não apenas funcionam
+            hoje, mas que crescem de forma sustentável junto com o negócio.
+
+            Combinando engenharia sólida e inovação em IA, entrego plataformas que transformam dados em vantagem
+            competitiva. Vamos colaborar e construir a próxima geração de sistemas inteligentes juntos!</p>
+
+    </div>
+</section>
+
+<section id="projetos">
+    <div class="container">
+        <h2 class="text-center mb-5">Meus Projetos</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for project in projects %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="{% static 'img/'|add:project.image_name %}" class="card-img-top"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section id="stacks" class="container py-5">
+    <h2 class="text-center mb-5 border-bottom pb-2">Tecnologias</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for stack in stacks %}
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 bg-light">
+                <div class="card-body text-center">
+
+                    <div class="mb-3">
+                        <i class="bi {{ stack.icon }} display-4 text-primary"></i>
+                    </div>
+
+                    <h3 class="card-title h4 mb-4">{{ stack.category }}</h3>
+
+                    <ul class="list-group list-group-flush rounded text-start">
+                        {% for tool in stack.tools %}
+                        <li class="list-group-item bg-transparent d-flex align-items-center">
+                            <i class="bi {{ tool.icon_name }} fs-5 me-3 text-secondary"></i>
+                            <span class="fw-medium">{{ tool.name }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="servicos" class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom text-center">Meus Serviços</h2>
+
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        {% for servico in servicos %}
+        <div class="col d-flex align-items-start">
+            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
+                style="width: 60px; height: 60px;">
+                <i class="bi {{ servico.icon }}"></i>
+            </div>
+
+            <div>
+                <h3 class="fs-4 text-body-emphasis">{{ servico.title }}</h3>
+                <p class="text-secondary">{{ servico.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<section id="contato" class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+
+            <h2 class="mb-4 border-bottom pb-2 d-inline-block">Vamos Conversar?</h2>
+            <p class="lead text-muted mb-5">
+                Estou disponível para novos projetos e oportunidades.
+                Sinta-se à vontade para me chamar nas redes ou mandar um e-mail.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 mb-5">
+
+                <a href="{{ contato.linkedin_url }}" target="_blank"
+                    class="btn btn-outline-primary btn-lg d-flex align-items-center gap-2">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+
+                <a href="{{ contato.instagram_url }}" target="_blank"
+                    class="btn btn-outline-danger btn-lg d-flex align-items-center gap-2">
+                    <i class="bi bi-instagram"></i> Instagram
+                </a>
+
+                <a href="{{ contato.instagram_url }}" target="_blank"
+                    class="btn btn-outline-dark btn-lg d-flex align-items-center gap-2">
+                    <i class="bi bi-github"></i> Instagram
+                </a>
+
+            </div>
+
+            <div class="card shadow-sm border-0 bg-light mx-auto" style="max-width: 500px;">
+                <div class="card-body p-4">
+                    <h5 class="card-title mb-3">Copie meu e-mail</h5>
+
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control form-control-lg text-center bg-white"
+                            value="{{ contato.email }}" id="emailInput" readonly>
+
+                        <button class="btn btn-dark px-4" type="button" onclick="copiarEmail()" id="btnCopiar">
+                            <i class="bi bi-clipboard"></i> Copiar
+                        </button>
+                    </div>
+                    <small class="text-success fw-bold opacity-0 transition-opacity" id="msgCopiado">
+                        <i class="bi bi-check-circle"></i> E-mail copiado com sucesso!
+                    </small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function copiarEmail() {
+        // 1. Pega o elemento do input
+        var copyText = document.getElementById("emailInput");
+        var msgSucesso = document.getElementById("msgCopiado");
+        var btn = document.getElementById("btnCopiar");
+
+        // 2. Seleciona o texto (para dispositivos móveis)
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+
+        // 3. Copia para a área de transferência usando a API moderna
+        navigator.clipboard.writeText(copyText.value).then(function () {
+
+            // 4. Feedback Visual (Muda o botão e mostra mensagem)
+
+            // Mostra a mensagem "Copiado!" embaixo
+            msgSucesso.classList.remove("opacity-0");
+
+            // Muda o texto do botão temporariamente
+            var htmlOriginal = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check-lg"></i> Copiado!';
+            btn.classList.replace("btn-dark", "btn-success");
+
+            // 5. Reseta o estado após 2 segundos
+            setTimeout(function () {
+                msgSucesso.classList.add("opacity-0");
+                btn.innerHTML = htmlOriginal;
+                btn.classList.replace("btn-success", "btn-dark");
+            }, 3000);
+        });
+    }
+</script>
+
+{% endblock %}

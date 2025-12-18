@@ -1,0 +1,100 @@
+{
+  "projetos": [
+    {
+      "title": "Categoriza Brasil Sistema",
+      "description": "Um sistema onde a vigilancia pode avaliar os estabelecimentos que comercializam alimentos e emitir um selo de classificação",
+      "image_name": "categoriza1.png",
+      "technologies": ["Django", "Bootstrap5", "PostgreSQL", "Docker"],
+      "github_url": "https://github.com/labedufn/categoriza-categorizabrasil-sistema/tree/main"
+    },
+    {
+      "title": "Sistema de Analise Preditiva de Homicidios",
+      "description": "Um sistema que faz a predição da taxa de tentativa de homicidios no ano para cada cidade do RS e emite alertas.",
+      "image_name": "tfg1.png",
+      "technologies": ["Django", "CesiumJS", "FastAPI", "Docker"],
+      "github_url": "https://github.com/seunome/landing"
+    },
+    {
+      "title": "Sistema de Avaliação Online de Artigos",
+      "description": "Um sistema onde organizadores de eventos podem criar chamadas de trabalhos e pesquisadores enviam artigos para avaliação.",
+      "image_name": "saoa.png",
+      "technologies": ["Django", "CesiumJS", "FastAPI", "Docker"],
+      "github_url": "https://github.com/seunome/landing"
+    }
+  ],
+  "stacks": [
+    {
+      "category": "Frontend",
+      "icon": "bi-window-sidebar",
+      "tools": [
+        { "name": "Bootstrap 5", "icon_name": "bi-bootstrap" },
+        { "name": "HTML5 & CSS3", "icon_name": "bi-filetype-html" },
+        { "name": "JavaScript", "icon_name": "bi-filetype-js" }
+      ]
+    },
+    {
+      "category": "Backend",
+      "icon": "bi-hdd-network",
+      "tools": [
+        { "name": "Python", "icon_name": "bi-filetype-py" },
+        { "name": "Django", "icon_name": "bi-gear-wide-connected" },
+        { "name": "FastAPI", "icon_name": "bi-lightning-charge" }
+      ]
+    },
+    {
+      "category": "Data Science & AI",
+      "icon": "bi-graph-up-arrow", 
+      "tools": [
+        { 
+          "name": "NumPy", 
+          "icon_name": "bi-grid-3x3" 
+        },
+        { 
+          "name": "Pandas", 
+          "icon_name": "bi-table" 
+        },
+        { 
+          "name": "Scikit-Learn", 
+          "icon_name": "bi-robot" 
+        }
+      ]
+    },
+    {
+      "category": "DevOps & Dados",
+      "icon": "bi-server",
+      "tools": [
+        { "name": "Docker", "icon_name": "bi-box-seam" },
+        { "name": "PostgreSQL", "icon_name": "bi-database" },
+        { "name": "Git / GitHub", "icon_name": "bi-github" }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "title": "Desenvolvimento de Sistemas Web",
+      "description": "Criação de plataformas completas, desde o banco de dados até a interface do usuário, focadas em resolver problemas de negócio complexos.",
+      "icon": "bi-laptop"
+    },
+    {
+      "title": "APIs RESTful de Alta Performance",
+      "description": "Desenvolvimento de APIs rápidas e escaláveis utilizando FastAPI, ideais para integrar com aplicativos móveis e front-ends modernos.",
+      "icon": "bi-lightning-charge"
+    },
+    {
+      "title": "Ciência de Dados e Machine Learning",
+      "description": "Transformação de dados brutos em insights valiosos. Criação de modelos preditivos e automação de processamento de dados.",
+      "icon": "bi-graph-up-arrow"
+    },
+    {
+      "title": "DevOps e Infraestrutura",
+      "description": "Configuração de ambientes de produção seguros e eficientes utilizando Docker e Nginx, garantindo que sua aplicação não saia do ar.",
+      "icon": "bi-hdd-rack"
+    }
+  ],
+  "contact": {
+    "email": "faccinmatheus@gmail.com",
+    "linkedin_url": "https://www.linkedin.com/in/matheus-faccin-407ba0219/",
+    "instagram_url": "https://www.instagram.com/matheusmfaccin/",
+    "github_url": "https://github.com/MatheusMFaccin"
+  }
+}
