@@ -1,0 +1,32 @@
+# --- Python & Django ---
+*.pyc
+__pycache__/
+*.py[cod]
+db.sqlite3
+db.sqlite3-journal
+
+# --- Variáveis de Ambiente (Segurança CRÍTICA) ---
+# Nunca suba isso para o GitHub!
+.env
+.env.local
+
+# --- Arquivos Estáticos ---
+# 'staticfiles' é a pasta gerada automaticamente pelo collectstatic no Render.
+# Não precisamos versionar ela, apenas a pasta fonte 'static'.
+staticfiles/
+/media/
+
+# --- Ambientes Virtuais ---
+venv/
+.venv/
+env/
+.env/
+
+# --- IDEs e Sistema Operacional ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log

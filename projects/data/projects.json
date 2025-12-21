@@ -1,7 +1,7 @@
 {
   "projetos": [
     {
-      "title": "Categoriza Brasil Sistema",
+      "title": "Categoriza Brasil",
       "description": "Um sistema onde a vigilancia pode avaliar os estabelecimentos que comercializam alimentos e emitir um selo de classificação",
       "image_name": "categoriza1.png",
       "technologies": ["Django", "Bootstrap5", "PostgreSQL", "Docker"],

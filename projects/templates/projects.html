@@ -31,15 +31,24 @@
 </style>
 
 <section id="inicio">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
         <h1 class="display-4 fw-bold">Olá, eu sou o Matheus Faccin</h1>
         <p class="lead">Bem-vindo ao meu portfólio.</p>
-        <a href="#projetos" class="btn btn-primary btn-lg">Baixar Curriculo</a>
+        
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            
+            <a href="{% static 'docs/curriculo_matheus.pdf' %}" 
+               class="btn btn-primary btn-lg px-4 gap-3" 
+               download="Curriculo_Matheus_Faccin.pdf">
+               <i class="bi bi-file-earmark-arrow-down"></i> Baixar Currículo
+            </a>
+
+        </div>
     </div>
 </section>
 
 <section id="sobre" class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
 
         <h2 class="display-4 fw-bold">Sobre Mim</h2>
         <p>Olá, eu sou o Matheus, um Desenvolvedor Full-stack focado na construção de sistemas de alta performance. Com
@@ -58,12 +67,12 @@
 
 <section id="projetos">
     <div class="container">
-        <h2 class="text-center mb-5">Meus Projetos</h2>
+        <h2 class="text-center mb-5" data-aos="fade-up">Meus Projetos</h2>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for project in projects %}
-            <div class="col">
-                <div class="card h-100 shadow-sm">
+            <div class="col" data-aos="fade-up">
+                <div class="card h-100 shadow-sm" >
                     <img src="{% static 'img/'|add:project.image_name %}" class="card-img-top"
                         style="height: 200px; object-fit: cover;">
                     <div class="card-body">
@@ -79,11 +88,11 @@
 
 
 <section id="stacks" class="container py-5">
-    <h2 class="text-center mb-5 border-bottom pb-2">Tecnologias</h2>
+    <h2 class="text-center mb-5 border-bottom pb-2" data-aos="fade-up">Tecnologias</h2>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for stack in stacks %}
-        <div class="col">
+        <div class="col" data-aos="fade-up">
             <div class="card h-100 shadow-sm border-0 bg-light">
                 <div class="card-body text-center">
 
@@ -114,7 +123,7 @@
 
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
         {% for servico in servicos %}
-        <div class="col d-flex align-items-start">
+        <div class="col d-flex align-items-start" data-aos="fade-up">
             <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
                 style="width: 60px; height: 60px;">
                 <i class="bi {{ servico.icon }}"></i>
@@ -132,7 +141,7 @@
 
 <section id="contato" class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up">
 
             <h2 class="mb-4 border-bottom pb-2 d-inline-block">Vamos Conversar?</h2>
             <p class="lead text-muted mb-5">
@@ -152,9 +161,9 @@
                     <i class="bi bi-instagram"></i> Instagram
                 </a>
 
-                <a href="{{ contato.instagram_url }}" target="_blank"
+                <a href="{{ contato.github_url }}" target="_blank"
                     class="btn btn-outline-dark btn-lg d-flex align-items-center gap-2">
-                    <i class="bi bi-github"></i> Instagram
+                    <i class="bi bi-github"></i> Github
                 </a>
 
             </div>
