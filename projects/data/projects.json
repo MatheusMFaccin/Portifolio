@@ -4,22 +4,50 @@
       "title": "Categoriza Brasil",
       "description": "Um sistema onde a vigilancia pode avaliar os estabelecimentos que comercializam alimentos e emitir um selo de classificação",
       "image_name": "categoriza1.png",
-      "technologies": ["Django", "Bootstrap5", "PostgreSQL", "Docker"],
+      "technologies": [
+        "Django",
+        "Bootstrap5",
+        "PostgreSQL",
+        "Docker"
+      ],
       "github_url": "https://github.com/labedufn/categoriza-categorizabrasil-sistema/tree/main"
     },
     {
       "title": "Sistema de Analise Preditiva de Homicidios",
       "description": "Um sistema que faz a predição da taxa de tentativa de homicidios no ano para cada cidade do RS e emite alertas.",
       "image_name": "tfg1.png",
-      "technologies": ["Django", "CesiumJS", "FastAPI", "Docker"],
-      "github_url": "https://github.com/seunome/landing"
+      "technologies": [
+        "Django",
+        "CesiumJS",
+        "FastAPI",
+        "Docker"
+      ],
+      "github_url": "https://github.com/MatheusMFaccin/Sistema-de-Analise-Preditiva-de-Homicidios-com-Geoprocessamento-3D-e-Alertas-Inteligentes"
+    },
+    {
+      "title": "MoE Gating Network — USD/JPY Morphological Forecaster",
+      "description": "Sistema quantitativo que utiliza Mixture of Experts (MoE) e Deep Learning para prever a morfologia de preços (OHLC) do par USD/JPY, com pipeline de denoising e validação Walk-Forward.",
+      "image_name": "moe_forecaster.png",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "MetaTrader5",
+        "Plotly",
+        "Scikit-Learn"
+      ],
+      "github_url": "https://github.com/MatheusMFaccin/IA_TRADING"
     },
     {
       "title": "Sistema de Avaliação Online de Artigos",
       "description": "Um sistema onde organizadores de eventos podem criar chamadas de trabalhos e pesquisadores enviam artigos para avaliação.",
       "image_name": "saoa.png",
-      "technologies": ["Django", "CesiumJS", "FastAPI", "Docker"],
-      "github_url": "https://github.com/seunome/landing"
+      "technologies": [
+        "Django",
+        "CesiumJS",
+        "FastAPI",
+        "Docker"
+      ]
     }
   ],
   "stacks": [
@@ -27,35 +55,53 @@
       "category": "Frontend",
       "icon": "bi-window-sidebar",
       "tools": [
-        { "name": "Bootstrap 5", "icon_name": "bi-bootstrap" },
-        { "name": "HTML5 & CSS3", "icon_name": "bi-filetype-html" },
-        { "name": "JavaScript", "icon_name": "bi-filetype-js" }
+        {
+          "name": "Bootstrap 5",
+          "icon_name": "bi-bootstrap"
+        },
+        {
+          "name": "HTML5 & CSS3",
+          "icon_name": "bi-filetype-html"
+        },
+        {
+          "name": "JavaScript",
+          "icon_name": "bi-filetype-js"
+        }
       ]
     },
     {
       "category": "Backend",
       "icon": "bi-hdd-network",
       "tools": [
-        { "name": "Python", "icon_name": "bi-filetype-py" },
-        { "name": "Django", "icon_name": "bi-gear-wide-connected" },
-        { "name": "FastAPI", "icon_name": "bi-lightning-charge" }
+        {
+          "name": "Python",
+          "icon_name": "bi-filetype-py"
+        },
+        {
+          "name": "Django",
+          "icon_name": "bi-gear-wide-connected"
+        },
+        {
+          "name": "FastAPI",
+          "icon_name": "bi-lightning-charge"
+        }
       ]
     },
     {
       "category": "Data Science & AI",
-      "icon": "bi-graph-up-arrow", 
+      "icon": "bi-graph-up-arrow",
       "tools": [
-        { 
-          "name": "NumPy", 
-          "icon_name": "bi-grid-3x3" 
+        {
+          "name": "NumPy",
+          "icon_name": "bi-grid-3x3"
         },
-        { 
-          "name": "Pandas", 
-          "icon_name": "bi-table" 
+        {
+          "name": "Pandas",
+          "icon_name": "bi-table"
         },
-        { 
-          "name": "Scikit-Learn", 
-          "icon_name": "bi-robot" 
+        {
+          "name": "Scikit-Learn",
+          "icon_name": "bi-robot"
         }
       ]
     },
@@ -63,9 +109,18 @@
       "category": "DevOps & Dados",
       "icon": "bi-server",
       "tools": [
-        { "name": "Docker", "icon_name": "bi-box-seam" },
-        { "name": "PostgreSQL", "icon_name": "bi-database" },
-        { "name": "Git / GitHub", "icon_name": "bi-github" }
+        {
+          "name": "Docker",
+          "icon_name": "bi-box-seam"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon_name": "bi-database"
+        },
+        {
+          "name": "Git / GitHub",
+          "icon_name": "bi-github"
+        }
       ]
     }
   ],

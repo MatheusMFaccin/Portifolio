@@ -34,13 +34,12 @@
     <div class="text-center" data-aos="fade-up">
         <h1 class="display-4 fw-bold">Olá, eu sou o Matheus Faccin</h1>
         <p class="lead">Bem-vindo ao meu portfólio.</p>
-        
+
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            
-            <a href="{% static 'docs/curriculo_matheus.pdf' %}" 
-               class="btn btn-primary btn-lg px-4 gap-3" 
-               download="Curriculo_Matheus_Faccin.pdf">
-               <i class="bi bi-file-earmark-arrow-down"></i> Baixar Currículo
+
+            <a href="{% static 'docs/curriculo_matheus.pdf' %}" class="btn btn-primary btn-lg px-4 gap-3"
+                download="Curriculo_Matheus_Faccin.pdf">
+                <i class="bi bi-file-earmark-arrow-down"></i> Baixar Currículo
             </a>
 
         </div>
@@ -72,12 +71,27 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for project in projects %}
             <div class="col" data-aos="fade-up">
-                <div class="card h-100 shadow-sm" >
+                <div class="card h-100 shadow-sm">
                     <img src="{% static 'img/'|add:project.image_name %}" class="card-img-top"
                         style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.description }}</p>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">{{ project.title }}</h5>
+                        <p class="card-text text-muted">{{ project.description }}</p>
+                        
+                        <div class="d-flex flex-wrap gap-2 mb-4 mt-2">
+                            {% for tech in project.technologies %}
+                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle px-3 py-2 rounded-pill">
+                                {{ tech }}
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                        {% if project.github_url %}
+                        <a href="{{ project.github_url }}" target="_blank"
+                            class="btn btn-dark mt-auto d-flex align-items-center justify-content-center gap-2 transition-all shadow-sm">
+                            <i class="bi bi-github"></i> Ver mais
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
