@@ -1,32 +1,32 @@
-# --- Python & Django ---
-*.pyc
-__pycache__/
-*.py[cod]
-db.sqlite3
-db.sqlite3-journal
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# --- Variáveis de Ambiente (Segurança CRÍTICA) ---
-# Nunca suba isso para o GitHub!
+node_modules
+dist
+dist-ssr
+*.local
+
+# Env files
+backend/.env
 .env
 .env.local
 
-# --- Arquivos Estáticos ---
-# 'staticfiles' é a pasta gerada automaticamente pelo collectstatic no Render.
-# Não precisamos versionar ela, apenas a pasta fonte 'static'.
-staticfiles/
-/media/
+# Vite cache
+.vite/
 
-# --- Ambientes Virtuais ---
-venv/
-.venv/
-env/
-.env/
-
-# --- IDEs e Sistema Operacional ---
-.vscode/
-.idea/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# --- Logs ---
-*.log
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
