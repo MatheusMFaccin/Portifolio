@@ -12,13 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Vite pre-bundled deps
+.vite/
+
 # Env files
-backend/.env
 .env
 .env.local
-
-# Vite cache
-.vite/
+.env.*.local
 
 # Editor directories and files
 .vscode/*

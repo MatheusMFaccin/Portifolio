@@ -1,53 +1,34 @@
 <script setup>
 import { ref } from 'vue'
-import { contactSection, contactForm, apiConfig, socialLinks, footer } from '../../data/homeData.js'
+import { contactSection, socialLinks, footer } from '../../data/homeData.js'
 
-// ─── Estado do formulário ──
-const name = ref('')
-const email = ref('')
-const message = ref('')
-const status = ref('idle') // idle | sending | success | error
-const statusMsg = ref('')
+const email = 'faccinmatheus@gmail.com'
+const copied = ref(false)
 
-async function handleSubmit() {
-  if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-    status.value = 'error'
-    statusMsg.value = 'Preencha todos os campos.'
-    return
-  }
-
-  status.value = 'sending'
-  statusMsg.value = ''
-
+async function copyEmail() {
   try {
-    const resp = await fetch(`${apiConfig.baseUrl}${apiConfig.endpoints.contact}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-      },
-      body: JSON.stringify({
-        name: name.value.trim(),
-        email: email.value.trim(),
-        message: message.value.trim(),
-      }),
-    })
-
-    if (!resp.ok) {
-      const errData = await resp.json().catch(() => null)
-      throw new Error(errData?.detail || `Erro ${resp.status}`)
-    }
-
-    status.value = 'success'
-    statusMsg.value = contactForm.successMessage
-    name.value = ''
-    email.value = ''
-    message.value = ''
-  } catch (e) {
-    status.value = 'error'
-    statusMsg.value = e.message || contactForm.errorGeneric
+    await navigator.clipboard.writeText(email)
+    copied.value = true
+    setTimeout(() => (copied.value = false), 2000)
+  } catch {
+    // fallback
+    const ta = document.createElement('textarea')
+    ta.value = email
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    copied.value = true
+    setTimeout(() => (copied.value = false), 2000)
   }
 }
+
+// filter only GitHub and LinkedIn
+const displayLinks = socialLinks.filter(
+  (l) => l.label === 'GitHub' || l.label === 'LinkedIn'
+)
 </script>
 
 <template>
@@ -58,7 +39,10 @@ async function handleSubmit() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <!-- Section Header -->
       <div class="text-center mb-14">
-        <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-3" :class="contactSection.badgeColor">
+        <span
+          class="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-3"
+          :class="contactSection.badgeColor"
+        >
           {{ contactSection.badge }}
         </span>
         <h2 class="text-3xl md:text-4xl font-bold text-white text-center">
@@ -66,95 +50,34 @@ async function handleSubmit() {
         </h2>
       </div>
 
-      <!-- Contact Form -->
-      <div class="max-w-2xl mx-auto w-full">
-        <form @submit.prevent="handleSubmit" class="space-y-5 mb-16 text-center">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div class="text-center">
-              <label
-                :for="contactForm.name.id"
-                class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2"
-              >
-                {{ contactForm.name.label }}
-              </label>
-              <input
-                :id="contactForm.name.id"
-                v-model="name"
-                type="text"
-                :placeholder="contactForm.name.placeholder"
-                class="block w-full px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700/50 text-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-colors"
-              />
-            </div>
-            <div class="text-center">
-              <label
-                :for="contactForm.email.id"
-                class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2"
-              >
-                {{ contactForm.email.label }}
-              </label>
-              <input
-                :id="contactForm.email.id"
-                v-model="email"
-                type="email"
-                :placeholder="contactForm.email.placeholder"
-                class="block w-full px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700/50 text-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-colors"
-              />
-            </div>
-          </div>
-          <div class="text-center">
-            <label
-              :for="contactForm.message.id"
-              class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2"
-            >
-              {{ contactForm.message.label }}
-            </label>
-            <textarea
-              :id="contactForm.message.id"
-              v-model="message"
-              rows="5"
-              :placeholder="contactForm.message.placeholder"
-              class="block w-full px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700/50 text-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-colors resize-none"
-            />
-          </div>
-
-          <!-- Status message -->
-          <div
-            v-if="statusMsg"
-            class="text-xs sm:text-sm font-medium transition-all duration-200"
-            :class="status === 'success' ? 'text-emerald-400' : 'text-red-400'"
-          >
-            {{ statusMsg }}
-          </div>
-
-          <button
-            type="submit"
-            :disabled="status === 'sending'"
-            class="w-full sm:w-auto mx-auto flex justify-center items-center px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm tracking-wide shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer border-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-          >
-            <span v-if="status === 'sending'" class="flex items-center gap-2">
-              <span class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-              {{ contactForm.sendingLabel }}
-            </span>
-            <span v-else>
-              {{ contactForm.submitLabel }}
-            </span>
-          </button>
-        </form>
-      </div>
-
-      <!-- Social Links -->
-      <div class="flex justify-center gap-6 mt-8 mb-12">
+      <!-- GitHub + LinkedIn -->
+      <div class="flex justify-center gap-6 mb-10">
         <a
-          v-for="link in socialLinks"
+          v-for="link in displayLinks"
           :key="link.label"
           :href="link.href"
           target="_blank"
-          class="w-11 h-11 rounded-xl bg-gray-800/60 border border-gray-700/40 text-gray-500 flex items-center justify-center text-lg transition-all duration-200"
+          class="w-12 h-12 rounded-xl bg-gray-800/60 border border-gray-700/40 text-gray-500 flex items-center justify-center text-xl transition-all duration-200"
           :class="[link.hoverColor, link.hoverBorder, link.hoverBg]"
           :aria-label="link.label"
         >
           <i :class="link.icon" />
         </a>
+      </div>
+
+      <!-- Email + copy button -->
+      <div class="flex items-center justify-center gap-3 mb-12">
+        <span class="text-gray-300 text-sm font-mono select-all">{{ email }}</span>
+        <button
+          @click="copyEmail"
+          class="relative w-9 h-9 rounded-lg bg-gray-800/60 border border-gray-700/40 text-gray-500 flex items-center justify-center text-sm transition-all duration-200 hover:text-cyan-400 hover:border-cyan-500/30 hover:bg-cyan-500/10 active:scale-95 cursor-pointer"
+          :aria-label="copied ? 'Copiado!' : 'Copiar email'"
+          :title="copied ? 'Copiado!' : 'Copiar email'"
+        >
+          <!-- clipboard icon when idle, check icon when copied -->
+          <i v-if="!copied" class="bi bi-clipboard" />
+          <i v-else class="bi bi-check-lg text-cyan-400" />
+        </button>
       </div>
 
       <!-- Bottom bar -->
